@@ -9,9 +9,28 @@ public class Main {
 
         thread1.start();
 
+        try{
+            thread1.join();
+        }catch (InterruptedException interruptedException){
+            interruptedException.printStackTrace();
+        }
+
         thread2.start();
 
+        try{
+            thread2.join();
+        }catch (InterruptedException interruptedException){
+            interruptedException.printStackTrace();
+        }
+
         thread3.start();
+
+        try{
+            thread3.join();
+        }catch (InterruptedException interruptedException){
+            interruptedException.printStackTrace();
+        }
+
         System.out.println("All thread have completed their execution");
     }
 }
