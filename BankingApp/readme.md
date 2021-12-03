@@ -1,9 +1,12 @@
 #Problem Statement:
+
 Indian Bank is in operation since 1900. All the work and transactions are recorded manually. Bank
 wants to get advanced and wants to use technology in order to provide users self-transactions
 services.
 In Version 1 of their Banking Software, the bank wants to give support to the following
+
 ##Functionalities:
+
 1) Credentials verification (BankAccountNo, Password)
 2) Deposit
 3) Withdrawal
@@ -15,6 +18,7 @@ You are required to create a program where all the above-mentioned functionaliti
 operational.
 
 ##Instructions
+
 1) Customers will have only two fields in the first version of the application
    bankAccountNo, password. All the values can be hardcoded and stored in a list of type
    Customer.
@@ -32,6 +36,7 @@ operational.
 5) Amount verification(withdrawal amount<balance) conditions can be skipped in the code.
 
 ##Additional features that can be added
+
 1) OTP is sent to mobile no. instead of displaying on the console. You can use open Sms APIs like
    Twilio, or Fast2SMS
 2) Java 8 features such as Lambda functions can be used instead of writing boilerplate code.
