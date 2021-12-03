@@ -1,2 +1,4 @@
-package io.github.bharatmane.banking;public class Prompter {
+package io.github.bharatmane.banking;
+
+public class Prompter {
 }
