@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="BankingApp" options="--add-exports jdk.jcmd/sun.tools.jps=ALL-UNNAMED" />
+      <module name="BankingApp" options="" />
     </option>
   </component>
 </project>
