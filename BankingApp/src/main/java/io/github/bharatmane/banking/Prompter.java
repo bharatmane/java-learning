@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 public class Prompter {
     private final PrintStream stdOut;
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
     private String option;
-    public Prompter(PrintStream stdOut) {
+    public Prompter(PrintStream stdOut, Scanner scanner) {
         this.stdOut = stdOut;
+        this.scanner = scanner;
     }
 
     public void greetUser() {
@@ -20,15 +21,31 @@ public class Prompter {
         stdOut.println(message);
     }
 
-    private void prompt(String message) {
+    private void prompt() {
         stdOut.println("> ");
         option = scanner.nextLine();
-
     }
 
     public void promptLogin() {
         print("Choose Option");
         print("1. Login");
         print("2. Exit");
+    }
+
+    public void login() {
+        prompt();
+        if(option.equals("1")){
+            promptCredentials();
+        }
+
+    }
+
+    private void promptCredentials() {
+        print("Please Enter User Name");
+        prompt();
+    }
+
+    public String currentOption() {
+        return option;
     }
 }
