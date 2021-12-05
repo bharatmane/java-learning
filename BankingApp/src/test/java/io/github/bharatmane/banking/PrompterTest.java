@@ -44,17 +44,18 @@ public class PrompterTest {
     @Test
     @DisplayName("should prompt login options")
     void shouldPromptLoginOptions(){
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner("1. Login\n2. Exit\n1");
         String expectedLoginString = "1. Login";
         String expectedExitString = "2. Exit";
         //Given
         Prompter prompter = new Prompter(printStream, scanner);
         //When
-        prompter.promptLogin();
+        int chosenOption = prompter.promptLogin();
 
         //Then
         assertThat(outputStream.toString()).contains(expectedLoginString);
         assertThat(outputStream.toString()).contains(expectedExitString);
+        assertThat(chosenOption).isEqualTo(1);
     }
 
     @Test
@@ -65,27 +66,26 @@ public class PrompterTest {
         //Given
         Prompter prompter = new Prompter(printStream,scanner);
         //When
-        prompter.promptLogin();
-        prompter.login();
+        prompter.promptUserName();
 
         //Then
         assertThat(prompter.currentOption()).isEqualTo("jack");
     }
 
-    @Test
-    @DisplayName("should ask login credentials for option 1")
-    void shouldAskLoginCredentialsWhenChosenOption1(){
-        Scanner scanner = new Scanner("1\njack");
 
-        //Given
-        Prompter prompter = new Prompter(printStream,scanner);
-        //When
-        prompter.promptLogin();
-        prompter.login();
-
-        //Then
-        assertThat(outputStream.toString()).contains("Please Enter User Name");
-    }
+//    @Test
+//    @DisplayName("should ask login credentials for option 1")
+//    void shouldLoginWhenCorrectCredentialsGiven(){
+//        Scanner scanner = new Scanner("1\njack\njack@123");
+//
+//        //Given
+//        Prompter prompter = new Prompter(printStream,scanner);
+//        //When
+//        prompter.login();
+//
+//        //Then
+//        assertThat(outputStream.toString()).contains("Please Enter User Name");
+//    }
 
 
 

@@ -1,5 +1,7 @@
 package io.github.bharatmane.banking;
 
+import io.github.bharatmane.banking.entity.Customer;
+
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -7,7 +9,8 @@ import java.util.Scanner;
 public class Prompter {
     private final PrintStream stdOut;
     private Scanner scanner;
-    private String option;
+    private String lastInput;
+    private Customer currentCustomer;
     public Prompter(PrintStream stdOut, Scanner scanner) {
         this.stdOut = stdOut;
         this.scanner = scanner;
@@ -23,29 +26,30 @@ public class Prompter {
 
     private void prompt() {
         stdOut.println("> ");
-        option = scanner.nextLine();
+        lastInput = scanner.nextLine();
     }
 
-    public void promptLogin() {
+    public int promptLogin() {
         print("Choose Option");
         print("1. Login");
         print("2. Exit");
-    }
-
-    public void login() {
         prompt();
-        if(option.equals("1")){
-            promptCredentials();
-        }
-
-    }
-
-    private void promptCredentials() {
-        print("Please Enter User Name");
-        prompt();
+        return Integer.parseInt(lastInput);
     }
 
     public String currentOption() {
-        return option;
+        return lastInput;
+    }
+
+    public String promptUserName() {
+        print("Please Enter User Name");
+        prompt();
+        return lastInput;
+    }
+
+    public String promptPassword() {
+        print("Please Enter Password");
+        prompt();
+        return lastInput;
     }
 }

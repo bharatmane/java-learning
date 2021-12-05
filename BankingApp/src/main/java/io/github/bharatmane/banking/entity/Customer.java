@@ -9,4 +9,8 @@ public class Customer {
         this.name = name;
         this.password = password;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
